@@ -1,14 +1,14 @@
 import { useState } from "react";
 import classes from "./contact.module.css";
 
-async function ContactForm() {
+function ContactForm() {
   const [email, setEmail] = useState();
   const [name, setName] = useState();
   const [messege, setMessege] = useState();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch("/api/contact", {
+    await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify({
         email,
